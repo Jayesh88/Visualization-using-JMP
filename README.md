@@ -1,4 +1,4 @@
-# Visualization-using-JMP
+# Visualization using *JMP*
 
 
 ### NetFlix
