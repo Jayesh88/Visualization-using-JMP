@@ -1,0 +1,557 @@
+JMP App(
+	Set Name( "Dashboard" ),
+	Set Description( "Four reports arranged in a grid" ),
+	Auto Launch( 1 ),
+	Snap To Grid( 1 ),
+	Show Grid( 1 ),
+	Show Properties( 0 ),
+	Show Sources( 1 ),
+	Group By Category( 0 ),
+	Dashboard Mode( 1 ),
+	Parameters,
+	Tables(
+		DataTable1 = GuiTable(
+			Set Path( "" ),
+			Set Label( "Netflix" ),
+			Set Location( "Embedded Script" ),
+			Set Invisible( 0 ),
+			Set Script(
+				Open(
+					"C:\Users\HP PC\Documents\Netflix.csv",
+					columns(
+						New Column( "User ID",
+							Numeric,
+							"Continuous",
+							Format( "Best", 12 )
+						),
+						New Column( "Day Of Week",
+							Numeric,
+							"Continuous",
+							Format( "m-d-y", 10 ),
+							Input Format( "m-d-y" )
+						),
+						New Column( "Column 3", Character, "Nominal" ),
+						New Column( "Show", Character, "Nominal" ),
+						New Column( "Season",
+							Numeric,
+							"Continuous",
+							Format( "Best", 12 )
+						),
+						New Column( "Episode",
+							Numeric,
+							"Continuous",
+							Format( "Best", 12 )
+						),
+						New Column( "Time Watched",
+							Numeric,
+							"Continuous",
+							Format( "Best", 12 )
+						),
+						New Column( "Gender", Character, "Nominal" ),
+						New Column( "Completed",
+							Numeric,
+							"Continuous",
+							Format( "Best", 12 )
+						),
+						New Column( "Time of Day",
+							Numeric,
+							"Continuous",
+							Format( "Best", 12 )
+						),
+						New Column( "Column 11", Character, "Nominal" ),
+						New Column( "Column 12", Character, "Nominal" )
+					),
+					Import Settings(
+						End Of Line( CRLF, CR, LF ),
+						End Of Field( Comma, CSV( 1 ) ),
+						Strip Quotes( 0 ),
+						Use Apostrophe as Quotation Mark( 0 ),
+						Use Regional Settings( 0 ),
+						Scan Whole File( 1 ),
+						Treat empty columns as numeric( 0 ),
+						CompressNumericColumns( 0 ),
+						CompressCharacterColumns( 0 ),
+						CompressAllowListCheck( 0 ),
+						Labels( 1 ),
+						Column Names Start( 1 ),
+						Data Starts( 2 ),
+						Lines To Read( "All" ),
+						Year Rule( "20xx" )
+					)
+				)
+			)
+		)
+	),
+	Thumbnail(
+		New Image(
+			Char To Blob(
+				"52711eJylVndQ01sW/iUESDFADEWB0IICIuXho4TyqEpREHggyNKLlEeTIAQQjKB0FOkiVQKCK0Jo0oRIQER6cZWiCYL0EpoEaRudnf13d+bN3HO/79xvzh9nzvlmboK5mSESLggHAABpbGRgyULiz4BysG7qHy69LIB46prqAgD5IeLAhZ2VwwKNruMBgKvjZ4D4pE1YFXCcsYGuFcFxNT8i0MoG061wQT1/mHzhwyP1HVGNLHWfZa/j1Ab1koaJa+znY+AeiSVKilzmOn95lDvLDdlBfNCKKWH6jr5ZmlBjFfF1TtYxVrmuUmUaojpuGqIP7o+BtBXgdx2bhVQQJaqf8/rXqQdzX/CDTStHa3srWvNrkrgRJpO5LJ99OaB2XDrLwrby2uHYWIajKztbvAdCQKdqBd2bPD4+3sLeeGuZf25uTlpP0Z/WVrmtNHvYAqHn0yYnZQ2dnAqHhgPIFNfF9paXxzNuh477CEPtH4ciArJjf1ifYcgCr+6p1k2u6nUPMRQ5zkcuLNY6Bwfz6uvrh7rmfNhI3cUUVDpUvrozZYZs0pr8EYEZjkZQtGfz2NnpKQf5501OIDXop1Z0V3pmCOteavDnT3Ig2BootiTE/r2cnl8lSv/w7OxykvOtJrrgrZqWLuJ5SIvIC0z2Wy6pSZUMgac1zSAsFhvldJVED231EKcQF+EDnoLOr3bEzp7l6j7ak3dNT0Phz3I93uhRqz6GKtXK08em0fFqmId9yecNCn7wZFpnM95sUOM18Pwyj2Bq+bmJ2LgHYi3Vgm7+2bSPaJmsFKChgKvzooEYVoptGuXCnCnAqIWsSHdgr5K5Hhi+aQJLFsbrjfWcWkh7epPxOpC0GAzlRlALaZ9i2AJWDM0SQWSZnni1vQDSvPXXiU9KJ52P1KStqn+bxPka3vRXHwlCuKiEiivICu0glRVnBZ6+bMNolfnn2KVIy7676HIRGZ5sUzTqWVRZiYzdGi+vqNSvCuPxQ2YHqmghyvwReWZxxx/R0msyQNUsmBHLH8Yv53OC8ptSosW/vK/9E1ny0iJMSfVrcA3CJebDjfv9/jFUHJhTw79+fFzTOQNT2zujHaDhhXFPp7rsNWauRhSc60R+eaZJ6MYfwCkWnv1Lvo8lfo/erUgyJVizXrgZZNegoDQJiFt4uN3iIjukMWyr7DanmF4ha5qDLV8Yl4oFlwgLVfK80bvPcmdur10GXk3KccPMVMLgXQsLCzpubiV5te3hw9RphmYTM53eBqHvt1qUu/5eY/imRqmUNzcQNWaoHcCq+0M05/FjC5NiQ09PqXOyspmWXjXSYIZCskHy3nlJoF3taEBAfK6kAjh4UlNeLr0QrC6O1dJy6OmM0QYtLS3xCAkt7x6UisjIyDQGTkenJXCasr8bHMw+w5PZ2WmAu8l3B+zu4fHGV0X2DDknN1fP0jLNcrOoAujq6trsu25A6Dj4M0gBFITHD4+OlmR0RiNSs7LKMjRTAbgkUUESiIGIgYyAk0QWtP5iOvchPIiTYsD/pUJrgDNIarwWLeneAYiUySWx6iqauMRx88nhaK4zzLnRV98+pDCvpC3j2/WhuM0bkxLu0kXAuqFTx1uMuu9URTeCc4LhM6UW9T0L5cG3aoJYhWYBcdT31d42glH1M8KO7k1+LriXOAI7cuds6f0QqBqEMZDT1dfI9hf3LedIiepwGlCjpBDxXFnSFlyOa8Zca2WGolUk2a62R/GduZ9S4INEhXAp4qbfLrWf2sgMJSr4YnRCQvItSzBv0BS2Y+sdqWP3jpJjQOQo/zRfab9JSghUlrJ9S0CE5tKZ6EDc3nQ2gtNFTr/FTl6xJQvZbiT5W6UBX6Yozyv7U1XIqtts2PdJQhkzEyhfkKJqrMLrCbj3ljBJtKGoUndftErAkpjWG/kpshHMXVkVu42/gC7iWA7lpxNuY2/Mr0XNHMu+4RV7NpaMCcieqV2W17cb7Q9qvWcaofDVygQRoW2CRfJYAklddwOqjGO3+4ONtJV0ws8KjHxEp2Z9IC12wcoABxs/wkrThdSCvu1Z5mf720sJhFkBnwgBnhAo0+tAMKrmN66RbCqDjhYtqttO/Nk2L3EmKJm+qGyRKgKjvn/WMWxLKx3ziqPggSNJxbvIKgPsK539HpTUJ3DgpXz5F/seks+fa2RiJyTqAJE6oa35Wl4Io5qAiyUCSd0jKOcNMRBYB8zUAyv+Z01YQEH8YlZGAPnvqLbBIHnH1viX8qt3iqfTJZSVdwrA7p6evUlySdB1r4IS1Vy4uZPTw3fvjMaVUDFVp2dTtEHve3tRGMzqT7+0bu05DAj1Q+iX05SVlYubmwWtra072NcX5uZu4Lwz98AM+z2TpxLznyYmlkanc2GUq/Ted5thOhYWj1KHv3wRCYTSBXwCA80XhOe5h3O5QLcfW0c9qaioQCm5urqC4ZSe3l79S5diaVvZ4VZWVmLi4rosx5aBA6nhERGZaYSFnR8R8NT0dCxt0eD+/EJKGXjIjT4S28YJBWB0BIzyX18ZAQq/mLk4qDMa8r/V3jQUcZdzPQ33/Ya/mWltR94zPbdoGUq+8PhOJt6epH1KLg+Iwy5vjHwXfvH5z/hKqYkNu3un959OuAgFycrVYW3BKxHtgtqH+iL/WpPraLhz6x1OJNkvDu9u712M6YANTY3EtR5wuN+wmv4Wqk6WQzM3aD9SH1uX1A09cIaZ04aQ+rrYgaVz1WsOFxo8ycK0FT1jl/QRPY3OfLa+z5QtzhTCnCSj/nNxk++U4cfPhJB2GC0JaCOPJm+etFNe4UpHy9/+qwpVOMmtWY37PTsFj4vb+OBgs0F3ujvYOmK6zBGOjwg/8dAvIK6OL9VxydDR//XPteWn/1CWEjnykyL5aRqi5W0azilPiJOAtYTTarEYQvBlOdLOR7HIdpR6pLLwmszU5tKL42xnOF2w8G6XK/W900fdCcWBoBe6oCf7am+Z6LshUBliMQktW2h6b9seRxLIgQzaTI9eLXWZ/wdH38D9WKB5hV+zTj3hm+1izyM/UebA9dawFzmvRUsfcUDVIVN67nrKpO5jNu/6B34z5O+74VeSvfdzeK+AmKFChlczde34vvXctBZWac9KWBRSzeCYEFsRJuLVEyLV2wjQ5ah04rixn8IJqXKw9L1IW8jiVoBb74DV3OuGV3ceDIEDT8RyJDs9MTeZqOGF0Gfty6l9YyTLEf5pdtsrWYlAEgzGw/KJwEmiLjgVkARgOixw/MWK9MDx7H9D7ZKSII77XjP5elNbNpZxxo3ZrCvRgdcIXcuz3AzUBs/KdLszdfnaLHNU6+vrN5es7E8ORztBozgZsd8eZGXxl84W19VZOYoM0o7JYzFJGk7AUbHjKXp7tLDHJakARzPWzxIwvmhm8FLPOfrfiZ23uA==",
+				"base64compressed"
+			),
+			"png"
+		)
+	),
+	Script(JSL Quote(// This script is executed when the application is run.
+// Named objects have been created for the application modules
+// (for example, "Module1") and the pre-defined object
+// "thisApplication" refers to the application object itself.
+// Variables and functions declared here are scoped to the
+// Application namespace.
+
+)	),
+	Allocate(
+		Module1 = Plan(
+			PreAllocate,
+			Script(JSL Quote(				thisModuleInstance << Create Objects;				Try(MainTabPage << Set Scriptable Object(thisApplication));			
+)			),
+			Allocate(
+				MainTabPage = Tab Page Box();
+				Splitter1 = H Splitter Box();
+				Splitter2 = V Splitter Box();
+				TabPage1 = Tab Page Box();
+				Scroll1 = Scroll Box();
+				Report1 = Platform(
+					DataTable1,
+					Distribution(
+						Nominal Distribution( Column( :Gender ) ),
+						Continuous Distribution( Column( :Time Watched ) )
+					)
+				);
+				TabPage3 = Tab Page Box();
+				Scroll3 = Scroll Box();
+				Report3 = Platform(
+					DataTable1,
+					Graph Builder(
+						Size( 516, 441 ),
+						Show Control Panel( 0 ),
+						Fit to Window( "Maintain Aspect Ratio" ),
+						Variables(
+							X( :Day Of Week ),
+							Overlay( :Show ),
+							Color( :Show )
+						),
+						Elements( Line( X, Legend( 24 ) ) ),
+						SendToReport(
+							Dispatch(
+								{},
+								"graph title",
+								TextEditBox,
+								{Set Text(
+									"Maximum number of shows watched over the week"
+								)}
+							)
+						)
+					)
+				);
+				Splitter3 = V Splitter Box();
+				TabPage2 = Tab Page Box();
+				Scroll2 = Scroll Box();
+				Report2 = Platform(
+					DataTable1,
+					Bubble Plot(
+						X( :Show ),
+						Y( :Season ),
+						Bubble Size( 10 ),
+						Title Position( 0, 0 ),
+						SendToReport(
+							Dispatch(
+								{},
+								"1",
+								ScaleBox,
+								{Format( "Best", 15 ), Min( -0.5 ), Max( 4.5 ),
+								Inc( 1 ), Minor Ticks( 0 ),
+								Label Row( Label Orientation( "Vertical" ) )}
+							),
+							Dispatch(
+								{},
+								"2",
+								ScaleBox,
+								{Format( "Best", 12 ), Min( 0.75 ), Max( 10.25 ),
+								Inc( 0.5 ), Minor Ticks( 1 )}
+							),
+							Dispatch(
+								{},
+								"Bubble Plot",
+								FrameBox,
+								{Frame Size( 653, 360 )}
+							)
+						)
+					)
+				);
+				TabPage4 = Tab Page Box();
+				Scroll4 = Scroll Box();
+				Report4 = Platform(
+					DataTable1,
+					Graph Builder(
+						Size( 534, 464 ),
+						Show Control Panel( 0 ),
+						Fit to Window( "Maintain Aspect Ratio" ),
+						Variables(
+							X(
+								:Show,
+								Order By(
+									Transform Column(
+										"Count",
+										Formula( Col Number( :Show, :Show ) )
+									),
+									Ascending,
+									Order Statistic( "Mean" )
+								)
+							),
+							Overlay( :Show ),
+							Color( :Show )
+						),
+						Elements(
+							Bar(
+								X,
+								Legend( 2 ),
+								Summary Statistic( "Sum" ),
+								Label( "Label by Value" )
+							)
+						),
+						SendToReport(
+							Dispatch(
+								{},
+								"400",
+								ScaleBox,
+								{Legend Model(
+									2,
+									Properties(
+										0,
+										{Fill Color( 37 )},
+										Item ID( "American Horror Story", 1 )
+									),
+									Properties(
+										1,
+										{Fill Color( 69 )},
+										Item ID( "Friends", 1 )
+									),
+									Properties(
+										2,
+										{Fill Color( 37 )},
+										Item ID( "Orange Is The New Black", 1 )
+									),
+									Properties(
+										3,
+										{Fill Color( 69 )},
+										Item ID( "Parks & Rec", 1 )
+									),
+									Properties(
+										4,
+										{Fill Color( 53 )},
+										Item ID( "Stranger Things", 1 )
+									)
+								)}
+							),
+							Dispatch(
+								{},
+								"graph title",
+								TextEditBox,
+								{Set Text(
+									"Number of times shows watched by subscribers"
+								)}
+							)
+						)
+					)
+				);
+			),
+			Organize(
+				Reparent( Scroll4( Report4 ) );
+				Reparent( TabPage4( Scroll4 ) );
+				Reparent( Splitter3( TabPage4 ) );
+				Reparent( Scroll2( Report2 ) );
+				Reparent( TabPage2( Scroll2 ) );
+				Reparent( Splitter3( TabPage2 ) );
+				Reparent( Splitter1( Splitter3 ) );
+				Reparent( Scroll3( Report3 ) );
+				Reparent( TabPage3( Scroll3 ) );
+				Reparent( Splitter2( TabPage3 ) );
+				Reparent( Scroll1( Report1 ) );
+				Reparent( TabPage1( Scroll1 ) );
+				Reparent( Splitter2( TabPage1 ) );
+				Reparent( Splitter1( Splitter2 ) );
+				Reparent( MainTabPage( Splitter1 ) );
+				Relocate( MainTabPage( 0, 0 ) );
+			),
+			Initialize(
+				MainTabPage << Background Color( 2147483647 );
+				MainTabPage << Border(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				MainTabPage << Enabled( 1 );
+				MainTabPage << Horizontal Alignment( "Default" );
+				MainTabPage << Margin(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				MainTabPage << Padding(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				MainTabPage << Text Color( 2147483647 );
+				MainTabPage << Vertical Alignment( "Default" );
+				MainTabPage << Visibility( "Visible" );
+				MainTabPage << Title( "Dashboard" );
+				MainTabPage << Tip( "" );
+				MainTabPage << Icon( "" );
+				MainTabPage << Closeable( 0 );
+				MainTabPage << Moveable( 0 );
+				Splitter1 << Background Color( 2147483647 );
+				Splitter1 << Border(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				Splitter1 << Enabled( 1 );
+				Splitter1 << Horizontal Alignment( "Default" );
+				Splitter1 << Margin(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				Splitter1 << Padding(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				Splitter1 << Text Color( 2147483647 );
+				Splitter1 << Vertical Alignment( "Default" );
+				Splitter1 << Visibility( "Visible" );
+				Splitter1 << Dockable( 1 );
+				Splitter1 << Set Width( 381 );
+				Splitter1 << Set Height( 413 );
+				Splitter1 << Set Sizes( {0.5, 0.5} );
+				Splitter1 << set horizontal( 1 );
+				Splitter1 << Set Min Size( 381, 413 );
+				Splitter1 << Set Max Size( 60083, 60063 );
+				Splitter1 << Set Auto Stretching( 1, 1 );
+				Splitter2 << Background Color( 2147483647 );
+				Splitter2 << Border(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				Splitter2 << Enabled( 1 );
+				Splitter2 << Horizontal Alignment( "Default" );
+				Splitter2 << Margin(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				Splitter2 << Padding(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				Splitter2 << Text Color( 2147483647 );
+				Splitter2 << Vertical Alignment( "Default" );
+				Splitter2 << Visibility( "Visible" );
+				Splitter2 << Dockable( 1 );
+				Splitter2 << Set Width( 169 );
+				Splitter2 << Set Height( 393 );
+				Splitter2 << Set Sizes( {0.5, 0.5} );
+				Splitter2 << set horizontal( 0 );
+				Splitter2 << Set Min Size( 169, 393 );
+				Splitter2 << Set Max Size( 30020, 60043 );
+				Splitter2 << Set Auto Stretching( 1, 1 );
+				TabPage1 << Background Color( 2147483647 );
+				TabPage1 << Border( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				TabPage1 << Enabled( 1 );
+				TabPage1 << Horizontal Alignment( "Default" );
+				TabPage1 << Margin( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				TabPage1 << Padding(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				TabPage1 << Text Color( 2147483647 );
+				TabPage1 << Vertical Alignment( "Default" );
+				TabPage1 << Visibility( "Visible" );
+				TabPage1 << Title( "Distributions" );
+				TabPage1 << Tip( "" );
+				TabPage1 << Icon( "Distrib" );
+				TabPage1 << Closeable( 1 );
+				TabPage1 << Moveable( 1 );
+				Scroll1 << Background Color( 2147483647 );
+				Scroll1 << Border( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Scroll1 << Enabled( 1 );
+				Scroll1 << Horizontal Alignment( "Default" );
+				Scroll1 << Margin( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Scroll1 << Padding( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Scroll1 << Text Color( 2147483647 );
+				Scroll1 << User Resizable( {1, 1} );
+				Scroll1 << Vertical Alignment( "Default" );
+				Scroll1 << Visibility( "Visible" );
+				Scroll1 << Width( 719 );
+				Scroll1 << Height( 579 );
+				Scroll1 << Set Auto Scrollable( 1 );
+				Scroll1 << Set Scrollers( 1, 1 );
+				Scroll1 << Set Show Empty( 0 );
+				Scroll1 << Set Clip Printing( 0 );
+				Scroll1 << Set Min Size( 72, 36 );
+				Scroll1 << Set Max Size( 30000, 30000 );
+				Scroll1 << Set Auto Stretching( 1, 1 );
+				Report1 << Background Color( 2147483647 );
+				Report1 << Border( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Report1 << Enabled( 1 );
+				Report1 << Horizontal Alignment( "Default" );
+				Report1 << Margin( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Report1 << Padding( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Report1 << Text Color( 2147483647 );
+				Report1 << Vertical Alignment( "Default" );
+				Report1 << Visibility( "Visible" );
+				Report1 << set horizontal( 0 );
+				TabPage3 << Background Color( 2147483647 );
+				TabPage3 << Border( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				TabPage3 << Enabled( 1 );
+				TabPage3 << Horizontal Alignment( "Default" );
+				TabPage3 << Margin( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				TabPage3 << Padding(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				TabPage3 << Text Color( 2147483647 );
+				TabPage3 << Vertical Alignment( "Default" );
+				TabPage3 << Visibility( "Visible" );
+				TabPage3 << Title( "Graph Builder" );
+				TabPage3 << Tip( "" );
+				TabPage3 << Icon( "Trellis" );
+				TabPage3 << Closeable( 1 );
+				TabPage3 << Moveable( 1 );
+				Scroll3 << Background Color( 2147483647 );
+				Scroll3 << Border( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Scroll3 << Enabled( 1 );
+				Scroll3 << Horizontal Alignment( "Default" );
+				Scroll3 << Margin( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Scroll3 << Padding( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Scroll3 << Text Color( 2147483647 );
+				Scroll3 << User Resizable( {1, 1} );
+				Scroll3 << Vertical Alignment( "Default" );
+				Scroll3 << Visibility( "Visible" );
+				Scroll3 << Width( 149 );
+				Scroll3 << Height( 149 );
+				Scroll3 << Set Auto Scrollable( 1 );
+				Scroll3 << Set Scrollers( 0, 0 );
+				Scroll3 << Set Show Empty( 0 );
+				Scroll3 << Set Clip Printing( 0 );
+				Scroll3 << Set Min Size( 149, 126 );
+				Scroll3 << Set Max Size( 30185, 30001 );
+				Scroll3 << Set Auto Stretching( 1, 1 );
+				Report3 << Background Color( 2147483647 );
+				Report3 << Border( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Report3 << Enabled( 1 );
+				Report3 << Horizontal Alignment( "Default" );
+				Report3 << Margin( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Report3 << Padding( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Report3 << Text Color( 2147483647 );
+				Report3 << Vertical Alignment( "Default" );
+				Report3 << Visibility( "Visible" );
+				Report3 << set horizontal( 0 );
+				Splitter3 << Background Color( 2147483647 );
+				Splitter3 << Border(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				Splitter3 << Enabled( 1 );
+				Splitter3 << Horizontal Alignment( "Default" );
+				Splitter3 << Margin(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				Splitter3 << Padding(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				Splitter3 << Text Color( 2147483647 );
+				Splitter3 << Vertical Alignment( "Default" );
+				Splitter3 << Visibility( "Visible" );
+				Splitter3 << Dockable( 1 );
+				Splitter3 << Set Width( 169 );
+				Splitter3 << Set Height( 393 );
+				Splitter3 << Set Sizes( {0.5, 0.5} );
+				Splitter3 << set horizontal( 0 );
+				Splitter3 << Set Min Size( 169, 393 );
+				Splitter3 << Set Max Size( 30020, 60043 );
+				Splitter3 << Set Auto Stretching( 1, 1 );
+				TabPage2 << Background Color( 2147483647 );
+				TabPage2 << Border( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				TabPage2 << Enabled( 1 );
+				TabPage2 << Horizontal Alignment( "Default" );
+				TabPage2 << Margin( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				TabPage2 << Padding(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				TabPage2 << Text Color( 2147483647 );
+				TabPage2 << Vertical Alignment( "Default" );
+				TabPage2 << Visibility( "Visible" );
+				TabPage2 << Title( "Bubble Plot of Season by Show" );
+				TabPage2 << Tip( "" );
+				TabPage2 << Icon( "BubblePlot" );
+				TabPage2 << Closeable( 1 );
+				TabPage2 << Moveable( 1 );
+				Scroll2 << Background Color( 2147483647 );
+				Scroll2 << Border( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Scroll2 << Enabled( 1 );
+				Scroll2 << Horizontal Alignment( "Default" );
+				Scroll2 << Margin( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Scroll2 << Padding( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Scroll2 << Text Color( 2147483647 );
+				Scroll2 << User Resizable( {1, 1} );
+				Scroll2 << Vertical Alignment( "Default" );
+				Scroll2 << Visibility( "Visible" );
+				Scroll2 << Width( 149 );
+				Scroll2 << Height( 149 );
+				Scroll2 << Set Auto Scrollable( 1 );
+				Scroll2 << Set Scrollers( 0, 0 );
+				Scroll2 << Set Show Empty( 0 );
+				Scroll2 << Set Clip Printing( 0 );
+				Scroll2 << Set Min Size( 149, 149 );
+				Scroll2 << Set Max Size( 30066, 30196 );
+				Scroll2 << Set Auto Stretching( 1, 1 );
+				Report2 << Background Color( 2147483647 );
+				Report2 << Border( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Report2 << Enabled( 1 );
+				Report2 << Horizontal Alignment( "Default" );
+				Report2 << Margin( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Report2 << Padding( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Report2 << Text Color( 2147483647 );
+				Report2 << Vertical Alignment( "Default" );
+				Report2 << Visibility( "Visible" );
+				Report2 << set horizontal( 0 );
+				TabPage4 << Background Color( 2147483647 );
+				TabPage4 << Border( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				TabPage4 << Enabled( 1 );
+				TabPage4 << Horizontal Alignment( "Default" );
+				TabPage4 << Margin( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				TabPage4 << Padding(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				TabPage4 << Text Color( 2147483647 );
+				TabPage4 << Vertical Alignment( "Default" );
+				TabPage4 << Visibility( "Visible" );
+				TabPage4 << Title( "Graph Builder" );
+				TabPage4 << Tip( "" );
+				TabPage4 << Icon( "Trellis" );
+				TabPage4 << Closeable( 1 );
+				TabPage4 << Moveable( 1 );
+				Scroll4 << Background Color( 2147483647 );
+				Scroll4 << Border( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Scroll4 << Enabled( 1 );
+				Scroll4 << Horizontal Alignment( "Default" );
+				Scroll4 << Margin( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Scroll4 << Padding( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Scroll4 << Text Color( 2147483647 );
+				Scroll4 << User Resizable( {1, 1} );
+				Scroll4 << Vertical Alignment( "Default" );
+				Scroll4 << Visibility( "Visible" );
+				Scroll4 << Width( 149 );
+				Scroll4 << Height( 149 );
+				Scroll4 << Set Auto Scrollable( 1 );
+				Scroll4 << Set Scrollers( 0, 0 );
+				Scroll4 << Set Show Empty( 0 );
+				Scroll4 << Set Clip Printing( 0 );
+				Scroll4 << Set Min Size( 149, 126 );
+				Scroll4 << Set Max Size( 30185, 30001 );
+				Scroll4 << Set Auto Stretching( 1, 1 );
+				Report4 << Background Color( 2147483647 );
+				Report4 << Border( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Report4 << Enabled( 1 );
+				Report4 << Horizontal Alignment( "Default" );
+				Report4 << Margin( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Report4 << Padding( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Report4 << Text Color( 2147483647 );
+				Report4 << Vertical Alignment( "Default" );
+				Report4 << Visibility( "Visible" );
+				Report4 << set horizontal( 0 );
+			)
+		)
+	),
+	Initialize(
+		Module1 << Auto Launch( 1 );
+		Module1 << Set Module Type( "Report" );
+		Module1 << Set Window Title( "^TABLENAME - ^APPNAME" );
+		Module1 << Set Min Size( 0, 0 );
+		Module1 << Set Max Size( 30000, 30000 );
+		Module1 << Set Auto Stretching( ., . );
+	)
+)

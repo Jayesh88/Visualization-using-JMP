@@ -1,0 +1,984 @@
+JMP App(
+	Set Name( "Dashboard" ),
+	Set Description( "Four reports arranged in a grid" ),
+	Auto Launch( 1 ),
+	Snap To Grid( 1 ),
+	Show Grid( 1 ),
+	Show Properties( 0 ),
+	Show Sources( 1 ),
+	Group By Category( 0 ),
+	Dashboard Mode( 1 ),
+	Parameters,
+	Tables(
+		DataTable1 = GuiTable(
+			Set Path( "" ),
+			Set Label( "hotel_bookings" ),
+			Set Location( "Embedded Script" ),
+			Set Invisible( 0 ),
+			Set Script(
+				Open(
+					"C:\Users\HP PC\Documents\hotel_bookings.csv",
+					columns(
+						New Column( "hotel", Character, "Nominal" ),
+						New Column( "is_canceled",
+							Numeric,
+							"Continuous",
+							Format( "Best", 12 )
+						),
+						New Column( "lead_time",
+							Numeric,
+							"Continuous",
+							Format( "Best", 12 )
+						),
+						New Column( "arrival_date_year",
+							Numeric,
+							"Continuous",
+							Format( "Best", 12 )
+						),
+						New Column( "arrival_date_month", Character, "Nominal" ),
+						New Column( "arrival_date_week_number",
+							Numeric,
+							"Continuous",
+							Format( "Best", 12 )
+						),
+						New Column( "arrival_date_day_of_month",
+							Numeric,
+							"Continuous",
+							Format( "Best", 12 )
+						),
+						New Column( "stays_in_weekend_nights",
+							Numeric,
+							"Continuous",
+							Format( "Best", 12 )
+						),
+						New Column( "stays_in_week_nights",
+							Numeric,
+							"Continuous",
+							Format( "Best", 12 )
+						),
+						New Column( "adults",
+							Numeric,
+							"Continuous",
+							Format( "Best", 12 )
+						),
+						New Column( "children",
+							Numeric,
+							"Continuous",
+							Format( "Best", 12 )
+						),
+						New Column( "babies",
+							Numeric,
+							"Continuous",
+							Format( "Best", 12 )
+						),
+						New Column( "meal", Character, "Nominal" ),
+						New Column( "country", Character, "Nominal" ),
+						New Column( "market_segment", Character, "Nominal" ),
+						New Column( "distribution_channel", Character, "Nominal" ),
+						New Column( "is_repeated_guest",
+							Numeric,
+							"Continuous",
+							Format( "Best", 12 )
+						),
+						New Column( "previous_cancellations",
+							Numeric,
+							"Continuous",
+							Format( "Best", 12 )
+						),
+						New Column( "previous_bookings_not_canceled",
+							Numeric,
+							"Continuous",
+							Format( "Best", 12 )
+						),
+						New Column( "reserved_room_type", Character, "Nominal" ),
+						New Column( "assigned_room_type", Character, "Nominal" ),
+						New Column( "booking_changes",
+							Numeric,
+							"Continuous",
+							Format( "Best", 12 )
+						),
+						New Column( "deposit_type", Character, "Nominal" ),
+						New Column( "agent", Character, "Nominal" ),
+						New Column( "company", Character, "Nominal" ),
+						New Column( "days_in_waiting_list",
+							Numeric,
+							"Continuous",
+							Format( "Best", 12 )
+						),
+						New Column( "customer_type", Character, "Nominal" ),
+						New Column( "adr",
+							Numeric,
+							"Continuous",
+							Format( "Best", 12 )
+						),
+						New Column( "required_car_parking_spaces",
+							Numeric,
+							"Continuous",
+							Format( "Best", 12 )
+						),
+						New Column( "total_of_special_requests",
+							Numeric,
+							"Continuous",
+							Format( "Best", 12 )
+						),
+						New Column( "reservation_status", Character, "Nominal" ),
+						New Column( "reservation_status_date",
+							Numeric,
+							"Continuous",
+							Format( "yyyy-mm-dd", 10 ),
+							Input Format( "yyyy-mm-dd" )
+						)
+					),
+					Import Settings(
+						End Of Line( CRLF, CR, LF ),
+						End Of Field( Comma, CSV( 1 ) ),
+						Strip Quotes( 0 ),
+						Use Apostrophe as Quotation Mark( 0 ),
+						Use Regional Settings( 0 ),
+						Scan Whole File( 1 ),
+						Treat empty columns as numeric( 0 ),
+						CompressNumericColumns( 0 ),
+						CompressCharacterColumns( 0 ),
+						CompressAllowListCheck( 0 ),
+						Labels( 1 ),
+						Column Names Start( 1 ),
+						Data Starts( 2 ),
+						Lines To Read( "All" ),
+						Year Rule( "20xx" )
+					)
+				)
+			)
+		)
+	),
+	Thumbnail(
+		New Image(
+			Char To Blob(
+				"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",
+				"base64compressed"
+			),
+			"png"
+		)
+	),
+	Script(JSL Quote(// This script is executed when the application is run.
+// Named objects have been created for the application modules
+// (for example, "Module1") and the pre-defined object
+// "thisApplication" refers to the application object itself.
+// Variables and functions declared here are scoped to the
+// Application namespace.
+
+)	),
+	Allocate(
+		Module1 = Plan(
+			PreAllocate,
+			Script(JSL Quote(				thisModuleInstance << Create Objects;				Try(MainTabPage << Set Scriptable Object(thisApplication));			
+)			),
+			Allocate(
+				MainTabPage = Tab Page Box();
+				Splitter1 = H Splitter Box();
+				Splitter2 = V Splitter Box();
+				TabPage1 = Tab Page Box();
+				Scroll1 = Scroll Box();
+				Report1 = Platform(
+					DataTable1,
+					Graph Builder(
+						Size( 509, 435 ),
+						Show Control Panel( 0 ),
+						Fit to Window( "Maintain Aspect Ratio" ),
+						Variables( Color( :adults ), Shape( :country ) ),
+						Elements(
+							Map Shapes(
+								Legend( 9 ),
+								Summary Statistic( "Sum" ),
+								Show Missing Shapes( 1 )
+							)
+						),
+						SendToReport(
+							Dispatch(
+								{},
+								"400",
+								ScaleBox,
+								{Legend Model(
+									9,
+									Properties(
+										0,
+										{gradient(
+											{Color Theme( "Magma" ), Width( 12 )}
+										)},
+										Item ID( "adults", 1 )
+									)
+								)}
+							),
+							Dispatch(
+								{},
+								"graph title",
+								TextEditBox,
+								{Set Text( "Home Countries of Guests" )}
+							)
+						)
+					)
+				);
+				TabPage3 = Tab Page Box();
+				Scroll3 = Scroll Box();
+				Report3 = Platform(
+					DataTable1,
+					Graph Builder(
+						Size( 512, 445 ),
+						Show Control Panel( 0 ),
+						Fit to Window( "Maintain Aspect Ratio" ),
+						Variables( X( :market_segment ), Color( :market_segment ) ),
+						Elements(
+							Bar(
+								X,
+								Legend( 2 ),
+								Summary Statistic( "Sum" ),
+								Label( "Label by Value" )
+							)
+						),
+						SendToReport(
+							Dispatch(
+								{},
+								"market_segment",
+								ScaleBox,
+								{Label Row(
+									Tick Mark( Label( "Undefined" ), Label( "" ) )
+								)}
+							),
+							Dispatch(
+								{},
+								"400",
+								ScaleBox,
+								{Legend Model(
+									2,
+									Properties(
+										0,
+										{Fill Color( 69 )},
+										Item ID( "Aviation", 1 )
+									),
+									Properties(
+										1,
+										{Fill Color( 69 )},
+										Item ID( "Complementary", 1 )
+									),
+									Properties(
+										2,
+										{Fill Color( 69 )},
+										Item ID( "Corporate", 1 )
+									),
+									Properties(
+										3,
+										{Fill Color( 69 )},
+										Item ID( "Direct", 1 )
+									),
+									Properties(
+										4,
+										{Fill Color( 69 )},
+										Item ID( "Groups", 1 )
+									),
+									Properties(
+										5,
+										{Fill Color( 69 )},
+										Item ID( "Offline TA/TO", 1 )
+									),
+									Properties(
+										6,
+										{Fill Color( 53 )},
+										Item ID( "Online TA", 1 )
+									),
+									Properties(
+										7,
+										{Fill Color( 2 )},
+										Item ID( "Undefined", 1 )
+									)
+								)}
+							),
+							Dispatch(
+								{},
+								"graph title",
+								TextEditBox,
+								{Set Text( "Booking Analysis of Market Segment " )}
+							),
+							Dispatch(
+								{},
+								"Graph Builder",
+								FrameBox,
+								{Set Graphlet(
+									Picture(
+										local:_GetCategoricalColumn_ =
+										Function( {dt, groupings, filters},
+											local:nGroupings = N Items( groupings );
+											If( local:nGroupings > 0,
+												If(
+													Head(
+														groupings[local:nGroupings]
+													) !=
+													As Name( "Transform Column" ),
+													local:propColName = groupings[
+													local:nGroupings] <<
+													GetProperty(
+														"Next In Hierarchy"
+													);
+													local:propCol =
+													Try(
+														Column(
+															dt,
+															local:propColName
+														),
+														Empty()
+													);
+													If( !Is Empty( local:propCol ),
+														local:pos =
+														Contains(
+															filters,
+															local:propCol
+														);
+														If( !local:pos,
+															Return( local:propCol )
+														);
+													);
+												)
+											);
+											local:allCols = dt <<
+											Get Column Names(
+												Ordinal,
+												Nominal,
+												String
+											);
+											local:nAllCols =
+											N Items( local:allCols );
+											If( local:nAllCols > 0,
+												For( local:i = 1,
+													local:i <= local:nAllCols,
+													local:i++,
+													local:col =
+													Column(
+														dt,
+														local:allCols[local:i]
+													);
+													local:pos =
+													Contains( filters, local:col );
+													If( !local:pos,
+														Return( local:col )
+													);
+												)
+											);
+											Empty();
+										);
+										local:_GetContinuousColumn_ =
+										Function(
+											{dt, measurements, groupings, howMany,
+											supportsCount = 1},
+											local:result = {};
+											local:niMeasurements =
+											N Items( measurements );
+											If(
+												local:niMeasurements == 0 & howMany
+												 == 1 & supportsCount,
+												{},
+												local:fromMeasurements =
+												Min( niMeasurements, howMany );
+												For( local:i = 1,
+													local:i <= local
+													:fromMeasurements, local:i++,
+													If(
+														Head(
+															measurements[local:i]
+														) ==
+														As Name(
+															"Transform Column"
+														),
+															Insert Into(
+																local:result,
+																measurements[local:i
+																]
+															),
+														Head(
+															measurements[local:i]
+														) ==
+														As Name(
+															"Referenced Column"
+														),
+															Insert Into(
+																local:result,
+																Column(
+																	dt,
+																	As Name(
+																		Arg(
+																			measurements
+																			[local:i
+																			],
+																			1
+																		)
+																	)
+																)
+															),
+														Insert Into(
+															local:result,
+															Column(
+																dt,
+																measurements[local:i
+																]
+															)
+														)
+													)
+												);
+												local:remaining = howMany - local
+												:fromMeasurements;
+												If( local:remaining > 0,
+													local:fromGroupings =
+													N Items( groupings );
+													For( local:i = 1,
+														local:i <= local
+														:fromGroupings, local:i++,
+														If(
+															Head(
+																groupings[local:i]
+															) ==
+															As Name(
+																"Transform Column"
+															),
+															Insert Into(
+																local:result,
+																groupings[local:i]
+															);
+															local:remaining--;
+														,
+															If(
+																Head(
+																	groupings[local
+																	:i]
+																) ==
+																As Name(
+																	"Referenced Column"
+																),
+																local:groupingCol =
+																Column(
+																	dt,
+																	As Name(
+																		Arg(
+																			measurements
+																			[local:i
+																			],
+																			1
+																		)
+																	)
+																),
+																local:groupingCol =
+																Column(
+																	dt,
+																	groupings[local
+																	:i]
+																)
+															);
+															If(
+																local:groupingCol
+																 <<
+																Get Modeling Type(
+																	"English"
+																) == "Continuous",
+																Insert Into(
+																	local:result,
+																	local
+																	:groupingCol
+																);
+																local:remaining--;
+															);
+														);
+														If( local:remaining == 0,
+															Break()
+														);
+													);
+													If( local:remaining > 0,
+														local:allCols = dt <<
+														Get Column Names(
+															Continuous,
+															String
+														);
+														local:nAllCols =
+														N Items( local:allCols );
+														For( local:i = 1,
+															local:i <= local
+															:nAllCols, local:i++,
+															If(
+																!
+																Contains(
+																	local:result,
+																	Column(
+																		dt,
+																		local
+																		:allCols[
+																		local:i]
+																	)
+																),
+																Insert Into(
+																	local:result,
+																	Column(
+																		dt,
+																		local
+																		:allCols[
+																		local:i]
+																	)
+																);
+																local:remaining--;
+																If(
+																	local:remaining
+																	 == 0,
+																	Break()
+																);
+															)
+														);
+													);
+												);
+												local:result;
+											);
+										);
+										local:_GetSummaryStatistic_ =
+										Function( {stat},
+											{isTabulate, keyword, theStat},
+											If( !Is Missing( stat ),
+												isTabulate = "Bar" == "Tabulate";
+												If( isTabulate,
+													keyword = "Statistics";
+													theStat =
+													Match( stat,
+														"First Quartile",
+															"Quantiles(25)",
+														"Third Quartile",
+															"Quantiles(75)",
+														"% of Factor", "",
+														"% of Grand Total", "",
+														"\!"" || stat || "\!""
+													);
+												,
+													keyword = "Summary Statistic";
+													theStat = "\!"" || stat || "\!"";
+												);
+												If( !Is Missing( theStat ),
+													", " || keyword || "(" ||
+													theStat || ")",
+													""
+												);
+											,
+												""
+											)
+										);
+										local:statsDef = local
+										:_GetSummaryStatistic_(
+											local:_summaryStatistic
+										);
+										local:nextCol = local
+										:_GetCategoricalColumn_(
+											local:_dataTable,
+											local:_groupings,
+											local:_filters
+										);
+										If(
+											Is Empty( local:nextCol ), Empty(),
+											local:_underlyingRows <= 1 & local
+											:_drillDepth > 1, Empty(),
+											If( local:_mode == "Picture",
+												local:sizeDef = "Size( 200, 250 ),";
+												local:l = 0;
+											,
+												local:sizeDef = "";
+												local:l = 1;
+											);
+											local:measure = local
+											:_GetContinuousColumn_(
+												local:_dataTable,
+												local:_measurements,
+												local:_groupings,
+												1
+											);
+											If( N Items( local:measure ) == 0,
+												local:YDef = "";
+												local:YRef = "";
+											,
+												local:YDef =
+												Eval Insert(
+													", Y( {local:measure[1]} )",
+													"{",
+													"}"
+												);
+												local:YRef = ", Y";
+											);
+											local:template =
+											"
+		Graph Builder(
+			{local:sizeDef}
+			Show Legend( {local:l} ),
+			Show Title( {local:l} ),
+			Show Footer( {local:l} ),           
+			Show Control Panel( 0 ),
+			Variables( X( {local:nextCol} ) {local:YDef} ),
+			Elements( Bar( X {local:YRef} {local:statsDef} ) )
+		) 
+	";
+											Eval Insert Into(
+												local:template,
+												"{",
+												"}"
+											);
+											Parse( local:template );
+										);
+									),
+									Title( "Bar Preset" ),
+									Reapply( 1 )
+								)}
+							),
+							Dispatch( {}, "400", LegendBox, {Set Title( "" )} )
+						)
+					)
+				);
+				Splitter3 = V Splitter Box();
+				TabPage2 = Tab Page Box();
+				Scroll2 = Scroll Box();
+				Report2 = Platform(
+					DataTable1,
+					Graph Builder(
+						Size( 495, 440 ),
+						Show Control Panel( 0 ),
+						Fit to Window( "Maintain Aspect Ratio" ),
+						Variables( X( :reservation_status ) ),
+						Elements(
+							Pie(
+								X,
+								Legend( 2 ),
+								Label( "Label by Percent of Total Values" )
+							)
+						),
+						SendToReport(
+							Dispatch(
+								{},
+								"graph title",
+								TextEditBox,
+								{Set Text( "Reservation status of Guests" )}
+							),
+							Dispatch( {}, "400", LegendBox, {Set Title( "" )} )
+						)
+					)
+				);
+				TabPage4 = Tab Page Box();
+				Scroll4 = Scroll Box();
+				Report4 = Platform(
+					DataTable1,
+					Graph Builder(
+						Size( 534, 456 ),
+						Show Control Panel( 0 ),
+						Fit to Window( "Maintain Aspect Ratio" ),
+						Variables(
+							X( :reservation_status_date ),
+							Y( :adr ),
+							Color( :hotel )
+						),
+						Elements( Line( X, Y, Legend( 4 ) ) ),
+						SendToReport(
+							Dispatch(
+								{},
+								"graph title",
+								TextEditBox,
+								{Set Text( "Average daily Rate" )}
+							)
+						)
+					)
+				);
+			),
+			Organize(
+				Reparent( Scroll4( Report4 ) );
+				Reparent( TabPage4( Scroll4 ) );
+				Reparent( Splitter3( TabPage4 ) );
+				Reparent( Scroll2( Report2 ) );
+				Reparent( TabPage2( Scroll2 ) );
+				Reparent( Splitter3( TabPage2 ) );
+				Reparent( Splitter1( Splitter3 ) );
+				Reparent( Scroll3( Report3 ) );
+				Reparent( TabPage3( Scroll3 ) );
+				Reparent( Splitter2( TabPage3 ) );
+				Reparent( Scroll1( Report1 ) );
+				Reparent( TabPage1( Scroll1 ) );
+				Reparent( Splitter2( TabPage1 ) );
+				Reparent( Splitter1( Splitter2 ) );
+				Reparent( MainTabPage( Splitter1 ) );
+				Relocate( MainTabPage( 0, 0 ) );
+			),
+			Initialize(
+				MainTabPage << Background Color( 2147483647 );
+				MainTabPage << Border(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				MainTabPage << Enabled( 1 );
+				MainTabPage << Horizontal Alignment( "Default" );
+				MainTabPage << Margin(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				MainTabPage << Padding(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				MainTabPage << Text Color( 2147483647 );
+				MainTabPage << Vertical Alignment( "Default" );
+				MainTabPage << Visibility( "Visible" );
+				MainTabPage << Title( "Dashboard" );
+				MainTabPage << Tip( "" );
+				MainTabPage << Icon( "" );
+				MainTabPage << Closeable( 0 );
+				MainTabPage << Moveable( 0 );
+				Splitter1 << Background Color( 2147483647 );
+				Splitter1 << Border(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				Splitter1 << Enabled( 1 );
+				Splitter1 << Horizontal Alignment( "Default" );
+				Splitter1 << Margin(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				Splitter1 << Padding(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				Splitter1 << Text Color( 2147483647 );
+				Splitter1 << Vertical Alignment( "Default" );
+				Splitter1 << Visibility( "Visible" );
+				Splitter1 << Dockable( 1 );
+				Splitter1 << Set Width( 381 );
+				Splitter1 << Set Height( 413 );
+				Splitter1 << Set Sizes( {0.5, 0.5} );
+				Splitter1 << set horizontal( 1 );
+				Splitter1 << Set Min Size( 381, 413 );
+				Splitter1 << Set Max Size( 60083, 60063 );
+				Splitter1 << Set Auto Stretching( 1, 1 );
+				Splitter2 << Background Color( 2147483647 );
+				Splitter2 << Border(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				Splitter2 << Enabled( 1 );
+				Splitter2 << Horizontal Alignment( "Default" );
+				Splitter2 << Margin(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				Splitter2 << Padding(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				Splitter2 << Text Color( 2147483647 );
+				Splitter2 << Vertical Alignment( "Default" );
+				Splitter2 << Visibility( "Visible" );
+				Splitter2 << Dockable( 1 );
+				Splitter2 << Set Width( 169 );
+				Splitter2 << Set Height( 393 );
+				Splitter2 << Set Sizes( {0.5, 0.5} );
+				Splitter2 << set horizontal( 0 );
+				Splitter2 << Set Min Size( 169, 393 );
+				Splitter2 << Set Max Size( 30020, 60043 );
+				Splitter2 << Set Auto Stretching( 1, 1 );
+				TabPage1 << Background Color( 2147483647 );
+				TabPage1 << Border( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				TabPage1 << Enabled( 1 );
+				TabPage1 << Horizontal Alignment( "Default" );
+				TabPage1 << Margin( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				TabPage1 << Padding(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				TabPage1 << Text Color( 2147483647 );
+				TabPage1 << Vertical Alignment( "Default" );
+				TabPage1 << Visibility( "Visible" );
+				TabPage1 << Title( "Graph Builder" );
+				TabPage1 << Tip( "" );
+				TabPage1 << Icon( "Trellis" );
+				TabPage1 << Closeable( 1 );
+				TabPage1 << Moveable( 1 );
+				Scroll1 << Background Color( 2147483647 );
+				Scroll1 << Border( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Scroll1 << Enabled( 1 );
+				Scroll1 << Horizontal Alignment( "Default" );
+				Scroll1 << Margin( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Scroll1 << Padding( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Scroll1 << Text Color( 2147483647 );
+				Scroll1 << User Resizable( {1, 1} );
+				Scroll1 << Vertical Alignment( "Default" );
+				Scroll1 << Visibility( "Visible" );
+				Scroll1 << Width( 149 );
+				Scroll1 << Height( 149 );
+				Scroll1 << Set Auto Scrollable( 1 );
+				Scroll1 << Set Scrollers( 0, 0 );
+				Scroll1 << Set Show Empty( 0 );
+				Scroll1 << Set Clip Printing( 0 );
+				Scroll1 << Set Min Size( 149, 149 );
+				Scroll1 << Set Max Size( 30087, 30017 );
+				Scroll1 << Set Auto Stretching( 1, 1 );
+				Report1 << Background Color( 2147483647 );
+				Report1 << Border( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Report1 << Enabled( 1 );
+				Report1 << Horizontal Alignment( "Default" );
+				Report1 << Margin( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Report1 << Padding( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Report1 << Text Color( 2147483647 );
+				Report1 << Vertical Alignment( "Default" );
+				Report1 << Visibility( "Visible" );
+				Report1 << set horizontal( 0 );
+				TabPage3 << Background Color( 2147483647 );
+				TabPage3 << Border( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				TabPage3 << Enabled( 1 );
+				TabPage3 << Horizontal Alignment( "Default" );
+				TabPage3 << Margin( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				TabPage3 << Padding(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				TabPage3 << Text Color( 2147483647 );
+				TabPage3 << Vertical Alignment( "Default" );
+				TabPage3 << Visibility( "Visible" );
+				TabPage3 << Title( "Graph Builder" );
+				TabPage3 << Tip( "" );
+				TabPage3 << Icon( "Trellis" );
+				TabPage3 << Closeable( 1 );
+				TabPage3 << Moveable( 1 );
+				Scroll3 << Background Color( 2147483647 );
+				Scroll3 << Border( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Scroll3 << Enabled( 1 );
+				Scroll3 << Horizontal Alignment( "Default" );
+				Scroll3 << Margin( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Scroll3 << Padding( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Scroll3 << Text Color( 2147483647 );
+				Scroll3 << User Resizable( {1, 1} );
+				Scroll3 << Vertical Alignment( "Default" );
+				Scroll3 << Visibility( "Visible" );
+				Scroll3 << Width( 149 );
+				Scroll3 << Height( 149 );
+				Scroll3 << Set Auto Scrollable( 1 );
+				Scroll3 << Set Scrollers( 0, 0 );
+				Scroll3 << Set Show Empty( 0 );
+				Scroll3 << Set Clip Printing( 0 );
+				Scroll3 << Set Min Size( 149, 147 );
+				Scroll3 << Set Max Size( 30134, 30001 );
+				Scroll3 << Set Auto Stretching( 1, 1 );
+				Report3 << Background Color( 2147483647 );
+				Report3 << Border( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Report3 << Enabled( 1 );
+				Report3 << Horizontal Alignment( "Default" );
+				Report3 << Margin( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Report3 << Padding( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Report3 << Text Color( 2147483647 );
+				Report3 << Vertical Alignment( "Default" );
+				Report3 << Visibility( "Visible" );
+				Report3 << set horizontal( 0 );
+				Splitter3 << Background Color( 2147483647 );
+				Splitter3 << Border(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				Splitter3 << Enabled( 1 );
+				Splitter3 << Horizontal Alignment( "Default" );
+				Splitter3 << Margin(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				Splitter3 << Padding(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				Splitter3 << Text Color( 2147483647 );
+				Splitter3 << Vertical Alignment( "Default" );
+				Splitter3 << Visibility( "Visible" );
+				Splitter3 << Dockable( 1 );
+				Splitter3 << Set Width( 169 );
+				Splitter3 << Set Height( 393 );
+				Splitter3 << Set Sizes( {0.5, 0.5} );
+				Splitter3 << set horizontal( 0 );
+				Splitter3 << Set Min Size( 169, 393 );
+				Splitter3 << Set Max Size( 30020, 60043 );
+				Splitter3 << Set Auto Stretching( 1, 1 );
+				TabPage2 << Background Color( 2147483647 );
+				TabPage2 << Border( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				TabPage2 << Enabled( 1 );
+				TabPage2 << Horizontal Alignment( "Default" );
+				TabPage2 << Margin( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				TabPage2 << Padding(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				TabPage2 << Text Color( 2147483647 );
+				TabPage2 << Vertical Alignment( "Default" );
+				TabPage2 << Visibility( "Visible" );
+				TabPage2 << Title( "Graph Builder" );
+				TabPage2 << Tip( "" );
+				TabPage2 << Icon( "Trellis" );
+				TabPage2 << Closeable( 1 );
+				TabPage2 << Moveable( 1 );
+				Scroll2 << Background Color( 2147483647 );
+				Scroll2 << Border( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Scroll2 << Enabled( 1 );
+				Scroll2 << Horizontal Alignment( "Default" );
+				Scroll2 << Margin( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Scroll2 << Padding( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Scroll2 << Text Color( 2147483647 );
+				Scroll2 << User Resizable( {1, 1} );
+				Scroll2 << Vertical Alignment( "Default" );
+				Scroll2 << Visibility( "Visible" );
+				Scroll2 << Width( 149 );
+				Scroll2 << Height( 149 );
+				Scroll2 << Set Auto Scrollable( 1 );
+				Scroll2 << Set Scrollers( 0, 0 );
+				Scroll2 << Set Show Empty( 0 );
+				Scroll2 << Set Clip Printing( 0 );
+				Scroll2 << Set Min Size( 149, 76 );
+				Scroll2 << Set Max Size( 30103, 30001 );
+				Scroll2 << Set Auto Stretching( 1, 1 );
+				Report2 << Background Color( 2147483647 );
+				Report2 << Border( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Report2 << Enabled( 1 );
+				Report2 << Horizontal Alignment( "Default" );
+				Report2 << Margin( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Report2 << Padding( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Report2 << Text Color( 2147483647 );
+				Report2 << Vertical Alignment( "Default" );
+				Report2 << Visibility( "Visible" );
+				Report2 << set horizontal( 0 );
+				TabPage4 << Background Color( 2147483647 );
+				TabPage4 << Border( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				TabPage4 << Enabled( 1 );
+				TabPage4 << Horizontal Alignment( "Default" );
+				TabPage4 << Margin( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				TabPage4 << Padding(
+					{Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )}
+				);
+				TabPage4 << Text Color( 2147483647 );
+				TabPage4 << Vertical Alignment( "Default" );
+				TabPage4 << Visibility( "Visible" );
+				TabPage4 << Title( "Graph Builder" );
+				TabPage4 << Tip( "" );
+				TabPage4 << Icon( "Trellis" );
+				TabPage4 << Closeable( 1 );
+				TabPage4 << Moveable( 1 );
+				Scroll4 << Background Color( 2147483647 );
+				Scroll4 << Border( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Scroll4 << Enabled( 1 );
+				Scroll4 << Horizontal Alignment( "Default" );
+				Scroll4 << Margin( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Scroll4 << Padding( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Scroll4 << Text Color( 2147483647 );
+				Scroll4 << User Resizable( {1, 1} );
+				Scroll4 << Vertical Alignment( "Default" );
+				Scroll4 << Visibility( "Visible" );
+				Scroll4 << Width( 149 );
+				Scroll4 << Height( 149 );
+				Scroll4 << Set Auto Scrollable( 1 );
+				Scroll4 << Set Scrollers( 0, 0 );
+				Scroll4 << Set Show Empty( 0 );
+				Scroll4 << Set Clip Printing( 0 );
+				Scroll4 << Set Min Size( 149, 81 );
+				Scroll4 << Set Max Size( 30114, 30001 );
+				Scroll4 << Set Auto Stretching( 1, 1 );
+				Report4 << Background Color( 2147483647 );
+				Report4 << Border( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Report4 << Enabled( 1 );
+				Report4 << Horizontal Alignment( "Default" );
+				Report4 << Margin( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Report4 << Padding( {Left( 0 ), Top( 0 ), Right( 0 ), Bottom( 0 )} );
+				Report4 << Text Color( 2147483647 );
+				Report4 << Vertical Alignment( "Default" );
+				Report4 << Visibility( "Visible" );
+				Report4 << set horizontal( 0 );
+			)
+		)
+	),
+	Initialize(
+		Module1 << Auto Launch( 1 );
+		Module1 << Set Module Type( "Report" );
+		Module1 << Set Window Title( "^TABLENAME - ^APPNAME" );
+		Module1 << Set Min Size( 0, 0 );
+		Module1 << Set Max Size( 30000, 30000 );
+		Module1 << Set Auto Stretching( ., . );
+	)
+)
