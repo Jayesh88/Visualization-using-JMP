@@ -28,7 +28,7 @@ In this dataset, i have used one way anova model to check number of suicide comm
 
 
 
-Secondly i used histogram to check the freguency of male over female suicides and we can clearly see from the below figure that the male popoulation has committed max suicide and we can see taht year 2000-2003 being the highest for suicides.
+Secondly i used histogram to check the freguency of male over female suicides and we can clearly see from the below figure that the male popoulation has committed max suicide and we can see that year 2000-2003 being the highest for suicides.
 
 ![image](https://user-images.githubusercontent.com/61301712/103496532-9b7a7500-4e0c-11eb-9cad-55966bf8b243.png)
 
