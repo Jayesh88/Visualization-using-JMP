@@ -34,6 +34,6 @@ Secondly i used histogram to check the freguency of male over female suicides an
 
 
 
-Then i have used probability plot to see which age group are tend to commit more suicide nad we can see from teh blow figure that age group between 5-14 shows a normal distribution and tend to commit more suicide.
+Then i have used probability plot to see which age group are tend to commit more suicide and we can see from the below figure that age group between 5-14 shows a normal distribution and tend to commit more suicide.
 
 ![image](https://user-images.githubusercontent.com/61301712/103496647-0926a100-4e0d-11eb-92c6-a934d5c00758.png)
